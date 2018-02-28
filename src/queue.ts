@@ -44,7 +44,7 @@ export class Queue<T> {
 
         return this.items;
     }
-    dequeue(item: T):T {
+    dequeue():T {
         return this.items.shift();
     }
 }

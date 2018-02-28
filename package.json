@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:tsc": "tsc"
+    "build:tsc": "tsc",
+    "watch": "tsc && webpack --watch --config built/webpack.config.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^4.0.1"
+    "webpack": "2.2.1"
   }
 }
