@@ -17,4 +17,6 @@ a.append(2222);
 console.log(a);
 a.removeAt(2);
 
+a.insert(3, 11);
+
 console.log(a);

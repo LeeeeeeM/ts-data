@@ -49,4 +49,28 @@ export class LinkedList<T> {
             // xxx 啥也不干
         }
     }
+
+    insert(pos: number, element: T): boolean {
+        if (pos >=0 && pos <= this.length) {
+            let node = new NodeE(element);
+            let current = this.head;
+            let previous;
+            let index = 0;
+            if (pos === 0) {
+                node.next = current;
+                this.head = node;
+            } else {
+                while(index++ < pos) {
+                    previous = current;
+                    current = current.next;
+                }
+                node.next = current;
+                previous.next = node;
+            }
+            this.length++;
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
