@@ -2,6 +2,19 @@
 
 import { hotPotato } from './hotPotapo';
 
-let a = hotPotato([1, 3, 5, 1, 1, 5, 1, 8], 4);
+import {LinkedList} from './linkedList'
+
+console.log(LinkedList);
+
+var a = new LinkedList<number>();
+
+a.append(1);
+a.append(2);
+
+a.append(12);
+
+a.append(2222);
+console.log(a);
+a.removeAt(2);
 
 console.log(a);

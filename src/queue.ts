@@ -3,7 +3,7 @@ interface QueueEle <T> {
     priority: number;
 }
 
-class PriorityQueue<U> {
+export class PriorityQueue<U> {
     private items: QueueEle<U>[] = [];
     constructor() {
 
