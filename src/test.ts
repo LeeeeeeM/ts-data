@@ -1,25 +1,16 @@
 // 专门用来测试
 
-import { hotPotato } from './hotPotapo';
+import {BST} from './bst';
 
-import {LinkedList} from './linkedList';
+let a = new BST<number>();
 
-import {TI} from './type_interface';
+a.insert(14);
 
-import {DoubleLinkedList} from './doubleLinkedList';
+a.insert(199);
+a.insert(7);
+a.insert(80);
+a.insert(11);
+a.insert(90);
+a.insert(100);
 
-var a = new LinkedList<number>();
-
-var dll = new DoubleLinkedList<number>();
-
-dll.insert(1, 0);
-dll.insert(2, 0);
-dll.insert(2, 1);
-console.log(dll);
-
-dll.removeAt(1);
-console.log(dll);
-
-TI.createObject(TI.People, '哈哈', 1);
-TI.createObject(TI.People);
-TI.createObject(TI.People, '哈哈哈');
+console.log(a);
