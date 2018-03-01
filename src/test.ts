@@ -6,24 +6,19 @@ import {LinkedList} from './linkedList';
 
 import {TI} from './type_interface';
 
-console.log(LinkedList);
+import {DoubleLinkedList} from './doubleLinkedList';
 
 var a = new LinkedList<number>();
 
-a.append(1);
-a.append(2);
+var dll = new DoubleLinkedList<number>();
 
-a.append(12);
+dll.insert(1, 0);
+dll.insert(2, 0);
+dll.insert(2, 1);
+console.log(dll);
 
-a.append(2222);
-console.log(a);
-a.removeAt(2);
-
-a.insert(3, 11);
-
-console.log(a);
-
-console.log(TI);
+dll.removeAt(1);
+console.log(dll);
 
 TI.createObject(TI.People, '哈哈', 1);
 TI.createObject(TI.People);
