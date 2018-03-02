@@ -2,15 +2,14 @@
 
 import {BST} from './bst';
 
-let a = new BST<number>();
+import {IO, f as F} from './container/io';
 
-a.insert(14);
+var a = new IO(function(xxx) {
+    console.log(xxx + 1);
+    console.log('ssssss');
+});
 
-a.insert(199);
-a.insert(7);
-a.insert(80);
-a.insert(11);
-a.insert(90);
-a.insert(100);
-
-console.log(a);
+var b = a.map(function(xxx) {
+    return xxx;
+});
+b.value(12312);
