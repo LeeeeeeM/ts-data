@@ -6,11 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:tsc": "tsc",
-    "watch": "tsc && webpack --watch --config built/webpack.config.js"
+    "watch": "./node_modules/.bin/tsc --watch | ./node_modules/.bin/webpack --watch --config built/webpack.config.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "typescript": "^2.7.2",
     "webpack": "2.2.1"
   }
 }

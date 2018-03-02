@@ -70,4 +70,83 @@ export class BST<T> {
         }
     }
 
+    max(): T {
+        return this.maxNode(this.root); 
+    }
+
+    maxNode(node: NodeE<T>): T {
+        while (node && node.right) {
+            node = node.right;
+        }
+        return node.key;
+    }
+
+    min(): T {
+        return this.minNode(this.root);
+    }
+
+    minNode(node: NodeE<T>): T {
+        while(node && node.left) {
+            node = node.left;
+        }
+        return node.key;
+    }
+
+    search(key: T): boolean {
+        return this.searchNode(this.root, key);
+    }
+
+    searchNode(node: NodeE<T>, key: T): boolean {
+        
+        if (node === null) {
+            return false;
+        }
+
+        if (key < node.key) {
+            this.searchNode(node.left, key);
+        } else if (key > node.key) {
+            this.searchNode(node.right, key);
+        } else {
+            return true;
+        }
+    }
+
+    remove(key: T): NodeE<T> {
+        return this.removeNode(this.root, key);
+    }
+
+    removeNode(node: NodeE<T>, key: T): NodeE<T> {
+        if (node === null) {
+            return null;
+        }
+        if (key < node.key) {
+            node.left = this.removeNode(node.left, key);
+            return node;
+        } else if (key > node.key) {
+            node.right = this.removeNode(node.right, key);
+            return node;
+        } else {
+            if (node.left === null && node.right === null) {
+                node = null;
+                return node;
+            }
+
+            if (node.left === null) {
+                node = node.right;
+                return node;
+            }
+
+            if (node.right === null) {
+                node = node.left;
+                return node;
+            }
+
+            // 拥有左右节点的node
+            let minNode = this.minNode(node.right);
+            console.log(minNode);
+            node.right = this.removeNode(node.right, minNode);
+            node.key = minNode; // 如果还有其他属性，需要新建一个NodeE元素
+            return node;
+        }
+    }
 } 
