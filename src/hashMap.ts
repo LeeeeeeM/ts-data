@@ -17,7 +17,7 @@ function looseHashCode(key: string):number {
     return hash % 37;
 }
 
-class HashMap<K extends string, V> {
+export class HashMap<K extends string, V> {
     public table: LinkedList<Pair<K, V>>[] = [];
     constructor() {
 
@@ -48,16 +48,28 @@ class HashMap<K extends string, V> {
         return undefined;
     }
 
-    remove(key: K): V {
+    remove(key: K): boolean {
         let pos = looseHashCode(key);
         if (this.table[pos] !== undefined) {
             let current = this.table[pos].getHead();
             while(current.next) {
                 if (current.element.key === key) {
                     this.table[pos].remove(current.element);
+                    if (this.table[pos].isEmpty()) {
+                        this.table[pos] = undefined;
+                    }
+                    return true;
                 }
+                current = current.next;
+            }
+            if (current.element.key === key) {
+                this.table[pos].remove(current.element);
+                if (this.table[pos].isEmpty()) {
+                    this.table[pos] = undefined;
+                }
+                return true;
             }
         }
-        return undefined;
+        return false;
     }
 }

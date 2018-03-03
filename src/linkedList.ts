@@ -80,9 +80,11 @@ export class LinkedList<T> {
 
     indexOf(element: T): number {
         let current = this.head;
-        let index = -1;
+        let index = 0;
         while(current) {
             if (element === current.element) {
+                // 如果是地址不相等的对象
+                // 可以实现一个equal方法
                 return index;
             }
             index++;
