@@ -6,13 +6,17 @@ type lll = number | string;
 
 class NodeE<T> {
     public next: link<T> = null;
-    constructor(private element: T) {
+    constructor(public element: T) {
     }
 }
 
 export class LinkedList<T> {
     private head: NodeE<T> = null;
-    private length: number = 0;
+    public length: number = 0;
+
+    getHead(): NodeE<T> {
+        return this.head;
+    }
 
     append(element: T):void {
         let node = new NodeE(element);
@@ -72,5 +76,27 @@ export class LinkedList<T> {
         } else {
             return false;
         }
+    }
+
+    indexOf(element: T): number {
+        let current = this.head;
+        let index = -1;
+        while(current) {
+            if (element === current.element) {
+                return index;
+            }
+            index++;
+            current = current.next;
+        }
+        return -1;
+    }
+
+    remove(element: T) {
+        let index = this.indexOf(element);
+        return this.removeAt(index);
+    }
+
+    isEmpty() {
+        return this.length === 0;
     }
 }

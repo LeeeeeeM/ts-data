@@ -4,6 +4,8 @@ import {BST} from './bst';
 
 import {IO, f as F} from './container/io';
 
+import {LRU} from './lru';
+
 var a = new IO(function(xxx) {
     console.log(xxx + 'xxx');
     console.log('step into function');
@@ -38,3 +40,17 @@ ccc.inOrderTraverse(function(item) {
 ccc.remove(16);
 
 // ccc.remove();
+
+var ssss = new LRU({
+    maxSize: 3
+});
+
+ssss.set(1, 2);
+ssss.set(3, 2);
+ssss.set(2, 2);
+ssss.set(5, 2);
+ssss.set(4, 2);
+ssss.set(3, 2);
+
+ssss.set(1, 222);
+console.log(ssss);
